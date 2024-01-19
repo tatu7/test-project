@@ -20,17 +20,16 @@ const BookList = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleDeleteBook = (bookToDelete) => {
-    const updatedBooks = books.filter((book) => book.id !== bookToDelete.id);
-    setBooks(updatedBooks);
+    const updatedBooks = filteredBooks.filter((book) => book.id !== bookToDelete.id);
+    setFilteredBooks(updatedBooks);
     localStorage.setItem('books', JSON.stringify(updatedBooks));
     handleDelete('Book deleted successfully!')
   };
   const handleEditBook = () => {
   };
   const handleSearch = (query) => {
-    console.log({ query });
     if (query) {
-      const filtered = books.filter((book) =>
+      const filtered = filteredBooks.filter((book) =>
         book.title.toLowerCase().includes(query.toLowerCase())
       );
       setFilteredBooks(filtered);
@@ -77,7 +76,7 @@ const BookList = () => {
         >
           <Box sx={{ my: 4, position: "relative", zIndex: 9, color: "#fff" }}>
             <Typography variant="h4" component="h1" gutterBottom >
-              You've got {books.length} book{books.length !== 1 && 's'}
+              You've got {filteredBooks.length} book{filteredBooks.length !== 1 && 's'}
             </Typography>
             <Typography variant="subtitle1" gutterBottom>
               Your books today
@@ -105,7 +104,7 @@ const BookList = () => {
         </Grid>
 
       </Container>
-      {open && <CustomModal open={open} setOpen={setOpen} books={books} setBooks={setBooks} handleCreate={handleCreate} handleDelete={handleDelete} />}
+      {open && <CustomModal open={open} setOpen={setOpen} books={filteredBooks} setBooks={setFilteredBooks} handleCreate={handleCreate} handleDelete={handleDelete} />}
       <Snackbar
         open={openSnackbar}
         autoHideDuration={6000}

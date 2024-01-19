@@ -55,7 +55,7 @@ const CustomModal = ({ books, setBooks, open, setOpen, handleCreate, handleDelet
   const addBookToState = (book) => {
     console.log({ book });
     book.status = bookStatus.trim().toUpperCase();
-    book.id = new Date().getTime();
+    book.id = Number(Math.random(100) * 100).toFixed(2);
     const newBooks = [...books, book];
     setBooks(newBooks);
     localStorage.setItem('books', JSON.stringify(newBooks));
