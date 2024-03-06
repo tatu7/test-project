@@ -102,7 +102,6 @@ const BookList = () => {
               handleEditBook={handleEditBook} />
           ))}
         </Grid>
-
       </Container>
       {open && <CustomModal open={open} setOpen={setOpen} books={filteredBooks} setBooks={setFilteredBooks} handleCreate={handleCreate} handleDelete={handleDelete} />}
       <Snackbar

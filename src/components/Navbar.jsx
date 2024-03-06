@@ -19,7 +19,6 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useNavigate } from 'react-router-dom';
-import logo from "../assets/logo.png"
 const Navbar = ({ onSearch }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [user, setUser] = useState({});
@@ -56,7 +55,6 @@ const Navbar = ({ onSearch }) => {
       <Toolbar>
         <Grid container alignItems="center" spacing={2}>
           <Grid item xs={12} sm={6} md={3}>
-            <img src={logo} alt='logo' style={{ width: '100%', maxWidth: '160px', height: 'auto' }} />
           </Grid>
           <Grid item xs={12} sm={6} md={5}>
             <TextField

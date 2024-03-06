@@ -9,7 +9,6 @@ import Layout from './components/Layout';
 function App() {
   return (
     <Layout>
-
       <Router>
         <Routes>
           <Route path="/" element={<MainPage />} />
